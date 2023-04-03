@@ -391,11 +391,17 @@ function processLine(params) {
 
 
     // Plants - grass
-    //TODO: GRASS_COLORS
     if (tag == 'GRASS_TILES' && last.plant) {
         for (var i in params)
             params[i] = tilenum(params[i]);
         ensureLast().r = params;
+        return;
+    }    
+
+    if (tag == 'GRASS_COLORS' && last.plant) {
+        for (var i in params)
+            params[i] = tilenum(params[i]);
+        ensureLast().c = params;
         return;
     }    
 
